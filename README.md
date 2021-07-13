@@ -1,3 +1,3 @@
 # Voting
 
-Implementation of some voting rules
+Implementation of some voting rules.
