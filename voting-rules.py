@@ -1,10 +1,13 @@
 import helpers
+import string_conversions
 
 def slater(G):
     """
-        Returns a list of linear orders: the Slater winners with respect to G.
+        Returns a list of linear orders: the orders selected by the Slater rule, 
+        i.e., the orders closest (in terms of Hamming distance) to the simply majority 
+        graph of G.
 
-        G can be a profile or a list of individual edges (the simple majority graph).
+        G can be given a profile or a list of individual edges (the simple majority graph).
 
         [[1,2,3], [1,3,2]] --> [[1,2,3], [1,3,2]]
         [(1,2), (1,3)] --> [[1,2,3], [1,3,2]]
@@ -24,8 +27,8 @@ def slater(G):
                 result.append(l)
         return result
 
-P = [[1,2,3], [2,3,1], [3,1,2]]
-print(slater(P))
+P = ['abc', 'bca', 'cab']
+print(slater(string_conversions.to_integers(P)))
 
 
 
