@@ -77,6 +77,7 @@ class MajorityGraph:
             labels = nx.get_edge_attributes(self.G, 'weight')
             nx.draw_networkx_edge_labels(self.G, pos, edge_labels=labels)  
         plt.show()
+
 class Profile:
     def __init__(self, input):
         self.orders = [LinearOrder(order) for order in input]
@@ -126,7 +127,8 @@ class Generator:
     
     def all_linear_orders(self, alternatives):
         for S in itertools.permutations(alternatives, len(alternatives)):
-            yield LinearOrder(list(S))       
+            yield LinearOrder(list(S))  
+                 
 class Distance:
     def __init__(self) -> None:
         pass
@@ -152,6 +154,7 @@ class Distance:
             if (y, x) in G.edges():
                 d += G.weighted_edges()[(y, x)]
         return d
+
 class VotingRules:
     def __init__(self, input):
         if type(input) == MajorityGraph:
