@@ -66,9 +66,12 @@ class MajorityGraph:
     
     def weighted_edges(self):
         return nx.get_edge_attributes(self.G, 'weight')
+    
+    def cycles(self):
+        return sorted(nx.simple_cycles(self.G))
 
     def draw(self):
-        pos = nx.spring_layout(self.G)
+        pos = nx.circular_layout(self.G)
         nx.draw(self.G, pos, node_color='white', with_labels=True, font_size=16, font_family='serif', node_size=1000, edgecolors = 'black')
         if self.weighted:
             labels = nx.get_edge_attributes(self.G, 'weight')
